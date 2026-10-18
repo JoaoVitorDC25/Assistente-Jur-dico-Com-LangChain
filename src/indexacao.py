@@ -5,6 +5,8 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
 
+from config import CHUNK_OVERLAP, CHUNK_SIZE
+
 def create_vetorial_db(pdf_bytes) -> Chroma:
     """
     Cria um banco de dados vetorial a partir de um arquivo PDF em bytes e retorna o objeto Chroma correspondente.
@@ -17,7 +19,7 @@ def create_vetorial_db(pdf_bytes) -> Chroma:
 
     docs = PyPDFLoader(tmp_path).load()
     
-    splitter = RecursiveCharacterTextSplitter(chunk_size = 1000, chunk_overlap = 150) 
+    splitter = RecursiveCharacterTextSplitter(chunk_size = CHUNK_SIZE, chunk_overlap = CHUNK_OVERLAP) 
     chunks = splitter.split_documents(docs)
     embeddings = HuggingFaceEmbeddings(model_name = "sentence-transformers/msmarco-bert-base-dot-v5")
     
