@@ -1,0 +1,9 @@
+#llm.py
+LLM_MODEL = "openai/gpt-oss-20b"
+LLM_TEMPERATURE = 0.2
+LLM_MAX_TOKENS = 1024
+
+#indexacao.py
+CHUNK_SIZE = 1000
+CHUNK_OVERLAP = 150
+
