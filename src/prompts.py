@@ -7,7 +7,7 @@ Se a resposta não estiver no PDF, diga que não encontrou no documento e ofere�
 Formate a resposta com: Resumo, Fundamentação (com citações de trechos entre aspas) e Próximos passos.
 Se houver conflito entre o PDF e conhecimento externo, priorize o PDF e sinalize a divergência."""
 
-def create_qa_prompt():
+def create_qa_prompt() -> ChatPromptTemplate:
     """
     Cria o template de prompt que será usado para formatar perguntas e contexto do PDF.
     """
